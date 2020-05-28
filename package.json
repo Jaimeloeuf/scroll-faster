@@ -2,7 +2,7 @@
   "name": "scroll-faster",
   "displayName": "Scroll Faster",
   "description": "Scroll editor faster then line by line using keyboard shortcuts only",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Enkel-Digital/scroll-faster.git"
@@ -18,6 +18,7 @@
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",
+    "publish": "git stash --include-untracked && vsce publish && git stash apply",
     "pretest": "npm run compile && npm run lint",
     "test": "node ./out/test/runTest.js"
   },

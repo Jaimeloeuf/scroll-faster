@@ -34,5 +34,10 @@ Authors:
 - [ ] Shortcut for cursor to follow movement instead of being left behind at original position by default
 
 ## Release Notes
+### 0.1.1
+- Minor bug fix to upgrade vs code engine version
+- Cleaned up logging code to make it more discreet.
+- Added new npm script for vsce publishing workflow
+
 ### 0.1.0
 Initial release with basic fast scrolling and scrollByLines setting.
