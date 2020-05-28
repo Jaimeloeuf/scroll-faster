@@ -22,7 +22,7 @@
     "test": "node ./out/test/runTest.js"
   },
   "engines": {
-    "vscode": "^1.45.0"
+    "vscode": "^1.45.1"
   },
   "icon": "images/icon.png",
   "galleryBanner": {

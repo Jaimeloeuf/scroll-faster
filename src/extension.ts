@@ -6,9 +6,6 @@ import * as vscode from "vscode";
 export async function activate(context: vscode.ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // These code will only be executed once when your extension is activated
-  vscode.window.showInformationMessage(
-    "Extension 'scroll-faster' is now active!"
-  );
 
   function createFasterScrollCommand(direction: string) {
     return vscode.commands.registerCommand(
@@ -53,8 +50,9 @@ export async function activate(context: vscode.ExtensionContext) {
           vscode.ConfigurationTarget.Global
         );
 
-      vscode.window.showInformationMessage(
-        `Scroll By Lines updated to '${newScrollByLines}'`
+      vscode.window.setStatusBarMessage(
+        `Scroll By Lines updated to '${newScrollByLines}'`,
+        3000
       );
     }
   );
