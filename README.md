@@ -34,6 +34,9 @@ Authors:
 - [ ] Shortcut for cursor to follow movement instead of being left behind at original position by default
 
 ## Release Notes
+### 0.1.2
+- Minor bug fix for bad keybinding
+
 ### 0.1.1
 - Minor bug fix to upgrade vs code engine version
 - Cleaned up logging code to make it more discreet.
