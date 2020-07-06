@@ -34,6 +34,9 @@ Authors:
 - [ ] Allow half viewport up/down scrolls instead of absolute number of lines to scroll by
 
 ## Release Notes
+### 0.2.1
+- Added command to set the optional cursor follow feature
+
 ### 0.2.0
 - New optional cursor follow feature, where cursor follows along the scroll instead of being left behind at original position by default
 
