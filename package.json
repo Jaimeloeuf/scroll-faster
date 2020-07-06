@@ -2,7 +2,7 @@
   "name": "scroll-faster",
   "displayName": "Scroll Faster",
   "description": "Scroll editor faster then line by line using keyboard shortcuts only",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/Enkel-Digital/scroll-faster.git"
@@ -51,11 +51,11 @@
     "commands": [
       {
         "command": "scroll-faster.up",
-        "title": "up"
+        "title": "scrollEditorUp"
       },
       {
         "command": "scroll-faster.down",
-        "title": "down"
+        "title": "scrollEditorDown"
       },
       {
         "command": "scroll-faster.setScrollBy",

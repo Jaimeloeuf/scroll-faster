@@ -1,6 +1,23 @@
 // The module 'vscode' contains the VS Code extensibility API
 import * as vscode from "vscode";
 
+// Function created using Factory function to wrap over "scrollByLines" config
+const linesToScrollBy = (function (): () => Number {
+  var lines = vscode.workspace.getConfiguration("scrollFaster").scrollByLines;
+
+  vscode.workspace.onDidChangeConfiguration(function (
+    e: vscode.ConfigurationChangeEvent
+  ) {
+    // Check if configuration has been edited
+    // e.affectsConfiguration
+
+    lines = vscode.workspace.getConfiguration("scrollFaster").scrollByLines;
+  });
+
+  return () => lines;
+})();
+
+// Function created using Factory function to wrap over "cursorFollowsScroll" config
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
@@ -14,9 +31,7 @@ export async function activate(context: vscode.ExtensionContext) {
         vscode.commands.executeCommand("editorScroll", {
           to: direction,
           by: "line",
-          // @todo Optimize this to only update when settings has been updated.
-          value: vscode.workspace.getConfiguration("scrollFaster")
-            .scrollByLines,
+          value: linesToScrollBy(),
           revealCursor: false,
         });
       }
@@ -52,7 +67,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
       vscode.window.setStatusBarMessage(
         `Scroll By Lines updated to '${newScrollByLines}'`,
-        3000
+        5000
       );
     }
   );

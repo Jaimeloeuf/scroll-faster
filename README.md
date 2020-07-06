@@ -34,6 +34,9 @@ Authors:
 - [ ] Shortcut for cursor to follow movement instead of being left behind at original position by default
 
 ## Release Notes
+### 0.1.3
+- Optimized reads to configuration, to use a cached value and only update the cache value when configuration is changed.
+
 ### 0.1.2
 - Minor bug fix for bad keybinding
 
