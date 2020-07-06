@@ -5,6 +5,7 @@ This overrides the keybindings for the default "scrollLineUp" and "scrollLineDow
 ## Features
 - Scroll editor multiple lines at once using the same scroll keybindings.
 - Custom line numbers to scroll by through the "set scroll lines by..." setting from command palette or user settings.
+- Optional cursor follow feature, where cursor can be set to follow along the scroll at the edge of the view port instead of being left behind at original position by default
 - Allow reverse scrolling by setting the number of lines to scroll the editor on every scroll to a negative number
 - Extension activated on vscode startup using the "*" activation event.
 
@@ -31,9 +32,11 @@ Authors:
 ## Roadmap
 - [ ] Smooth scrolling instead of immediate viewport jump/reveals which will be extremely helpful for scrolling past large amount of lines
 - [ ] Allow half viewport up/down scrolls instead of absolute number of lines to scroll by
-- [ ] Shortcut for cursor to follow movement instead of being left behind at original position by default
 
 ## Release Notes
+### 0.2.0
+- New optional cursor follow feature, where cursor follows along the scroll instead of being left behind at original position by default
+
 ### 0.1.3
 - Optimized reads to configuration, to use a cached value and only update the cache value when configuration is changed.
 

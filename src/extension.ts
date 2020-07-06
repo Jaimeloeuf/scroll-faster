@@ -5,19 +5,30 @@ import * as vscode from "vscode";
 const linesToScrollBy = (function (): () => Number {
   var lines = vscode.workspace.getConfiguration("scrollFaster").scrollByLines;
 
-  vscode.workspace.onDidChangeConfiguration(function (
-    e: vscode.ConfigurationChangeEvent
-  ) {
-    // Check if configuration has been edited
-    // e.affectsConfiguration
-
-    lines = vscode.workspace.getConfiguration("scrollFaster").scrollByLines;
-  });
+  // Regardless of what configuration is updated, just read and set value to keep it simpler
+  vscode.workspace.onDidChangeConfiguration(
+    () =>
+      (lines = vscode.workspace.getConfiguration("scrollFaster").scrollByLines)
+  );
 
   return () => lines;
 })();
 
 // Function created using Factory function to wrap over "cursorFollowsScroll" config
+const shouldCursorFollowScroll = (function (): () => Boolean {
+  var follow = vscode.workspace.getConfiguration("scrollFaster")
+    .cursorFollowsScroll;
+
+  // Regardless of what configuration is updated, just read and set value to keep it simpler
+  vscode.workspace.onDidChangeConfiguration(
+    () =>
+      (follow = vscode.workspace.getConfiguration("scrollFaster")
+        .cursorFollowsScroll)
+  );
+
+  return () => follow;
+})();
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
@@ -32,7 +43,7 @@ export async function activate(context: vscode.ExtensionContext) {
           to: direction,
           by: "line",
           value: linesToScrollBy(),
-          revealCursor: false,
+          revealCursor: shouldCursorFollowScroll(),
         });
       }
     );
