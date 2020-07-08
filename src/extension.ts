@@ -58,7 +58,7 @@ export async function activate(context: vscode.ExtensionContext) {
         validateInput: (input) =>
           // Ensure input is a number
           // Allow negative numbers for reverse scrolling
-          !isNaN(Number(input)) ? undefined : "Invalid input",
+          isNaN(Number(input)) ? "Invalid input" : undefined,
       });
 
       // End if input box closed after losing focus or if user pressed esc or if user pressed enter with no input
@@ -66,6 +66,13 @@ export async function activate(context: vscode.ExtensionContext) {
 
       // Parse input from string to number
       const newScrollByLines = parseInt(input);
+
+      // Do not set value if new value is invalid and NaN
+      if (isNaN(newScrollByLines))
+        return vscode.window.setStatusBarMessage(
+          `Invalid Scroll By Lines value '${input}'`,
+          5000
+        );
 
       // Save setScrollByLines to settings
       await vscode.workspace

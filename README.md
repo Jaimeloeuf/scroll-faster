@@ -16,12 +16,12 @@ This overrides the keybindings for the default "scrollLineUp" and "scrollLineDow
 ## Extension Settings
 Any VS Code settings through the `contributes.configuration` extension point.  
 This extension contributes the following settings:
-* `scroll-faster.enable`: enable/disable this extension
 * `scroll-faster.scrollByLines`: Number of lines to scroll the editor by on every scroll command
+* `scroll-faster.cursorFollowsScroll`: Should cursor follow along as editor scrolls?
 
 ## Known Issues
 <!-- Calling out known issues can help limit users opening duplicate issues against your extension. -->
-- Overrides the default line by line scroll's keybindings
+- Not exactly an issue, but user's should take note that, this extension Overrides keybindings of default line by line scrolling
 
 ## License, Author and Contributing
 This project is developed and made available under the "MIT License". Feel free to use it however you like and contribute changes to build on top of it!  
@@ -34,6 +34,9 @@ Authors:
 - [ ] Allow half viewport up/down scrolls instead of absolute number of lines to scroll by
 
 ## Release Notes
+### 0.2.2
+- Added extra check for NaN inputs for "scroll by lines" value
+
 ### 0.2.1
 - Added command to set the optional cursor follow feature
 
